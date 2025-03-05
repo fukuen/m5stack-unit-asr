@@ -31,6 +31,8 @@
 // ASRユニットのインスタンスを作成
 ASRUnit asr;
 
+int num = 0x50;
+
 void setup()
 {
     // M5Stackの初期化設定
@@ -77,15 +79,17 @@ void loop()
         // "hello"コマンドに対応する番号を検索
         Serial.printf("Search command number: %d\n", asr.searchCommandNum("hello"));
     }
-    // ボタンB: 新規コマンド"hello"の追加
+    // ボタンB: ゼロから十まで読み上げ
     else if (M5.BtnB.wasPressed()) {
-        // コマンド番号0x32、単語"hello"、ハンドラmyCommandHandlerを登録
-        Serial.printf(asr.addCommandWord(CMD_HELLO, "hello", myCommandHandler) ? 
-                     "Add Success\n" : "Add Fail\n");
-    }
-    // ボタンC: コマンド"hello"の削除
-    else if (M5.BtnC.wasPressed()) {
-        Serial.printf(asr.removeCommandWord("hello") ? 
-                     "Remove Success\n" : "Remove Fail\n");
+        asr.sendComandNum(num++);
+        if (num > 0x5a) {
+            num = 0x50;
+        }
+    // ボタンC: 読み上げ逆順
+    } else if (M5.BtnC.wasPressed()) {
+        asr.sendComandNum(num--);
+        if (num < 0x50) {
+            num = 0x5A;
+        }
     }
 }

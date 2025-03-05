@@ -52,4 +52,16 @@
 #define CMD_MINIMUM_VOLUME 0x44
 #define CMD_CHECK_FIRMWARE_VERSION 0x45
 
+#define CMD_SAY_ZERO       0x50
+#define CMD_SAY_ONE        0x51
+#define CMD_SAY_TWO        0x52
+#define CMD_SAY_THREE      0x53
+#define CMD_SAY_FOUR       0x54
+#define CMD_SAY_FIVE       0x55
+#define CMD_SAY_SIX        0x56
+#define CMD_SAY_SEVEN      0x57
+#define CMD_SAY_EIGHT      0x58
+#define CMD_SAY_NINE       0x59
+#define CMD_SAY_TEN        0x5A
+
 #endif
